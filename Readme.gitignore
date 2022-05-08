@@ -1,0 +1,15 @@
+1-open project in visual studio.
+2-install npm package : npm install
+3-run the project using terminal : ng serve
+
+4-follow steps:
+a-run the backend in local host 
+b-access to frontend application in: localhost:4200/home
+c-signup "as admin or super user in order to get full acces"
+d-signin "as admin or super user in order to get full acces"
+
+you can get list of user from list user or add user in add user nav
+
+you can edit or delete user
+
+e-signout

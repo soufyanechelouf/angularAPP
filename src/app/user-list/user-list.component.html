@@ -1,0 +1,74 @@
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>id</th>
+            <th>username</th>
+            <th>email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tempUser of users">
+            <td>{{tempUser.id}}
+                
+            </td>
+            <td>{{tempUser.username}}
+                <input
+                aria-colspan="0.5"
+                id="{{tempUser.username}}" style="display: none;"
+                type="text"
+                class=" {{tempUser.username}}"
+                name="username"
+                [(ngModel)]="form.username"
+                required
+                minlength="3"
+                maxlength="20"
+                #username="ngModel"
+                placeholder="new username"
+              />
+        
+            </td>
+            <td>{{tempUser.email}}
+                <input
+                id="{{tempUser.username}}" style="display: none;"
+                type="email"
+                class="{{tempUser.username}}"
+                name="email"
+                [(ngModel)]="form.email"
+                required
+                email
+                #email="ngModel"
+                placeholder="new email"
+              />
+            </td>
+            <td *ngIf="showAdminBoard">
+                <input
+                type="password"
+                style="display: none;margin-top: 20px;"
+                class="{{tempUser.username}}"
+                name="password"
+                [(ngModel)]="form.password"
+                required
+                minlength="6"
+                #password="ngModel"
+                placeholder="new password"
+              />
+                <button  (click)="edit(tempUser)" class="btn btn-success btn-sm ml-3">
+                <i class="fa fa-pencil">edit</i>
+            </button>
+            <button (click)="remove(tempUser)" class="btn btn-danger btn-sm ml-3">
+                <i class="fa fa-close">delete</i>
+            </button>
+            <button (click)="update(tempUser)"  class=" ml-3 btn btn-primary btn-sm {{tempUser.username}}" id="{{tempUser.username}}" style="display: none;">
+                <i class="fa fa-close">update</i>
+            </button>
+           
+        </td>
+        <td *ngIf="!showAdminBoard">
+            <span>You do not have the full authorisation to do actions</span>
+        </td>
+        </tr>
+    </tbody>
+</table>
+
+ 
